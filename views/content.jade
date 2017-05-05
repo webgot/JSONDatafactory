@@ -1,0 +1,115 @@
+div.container
+    div.content-background
+    div.main-content
+        div.intro-content
+            div.programmer-intro     
+            div.programmer-img
+                img(src="/images/programmer-opa.png", width="100%")
+        div.restful-content 
+            h1 RESTful API
+            hr
+            div.restful-intro.restful-info
+                h1 Intro
+                p
+                    |This site is a free online REST service that you can use whenever you need some fake data.
+                p 
+                    |It's great for tutorials, faking a server, sharing code examples, ...
+            div.restful-examples.restful-info
+                h1 Examples
+                p
+                    |Run this code in a console or from anywhere (JSON supported).
+                pre
+                    code.javascript
+                        | var root = 'https://jsondatafactory.com';
+                        p
+                        | $.ajax({
+                        |   url: root + '/saying/1',
+                        |   method: 'GET'
+                        | }).then(function(data) {
+                        |   console.log(data);
+                        | });
+                        
+                    
+            div.restful-resource.restful-info
+                h1 Resource
+                p
+                    |Inspired by common use cases.
+                table.ui.very.basic.collapsing.celled.table
+                    thead
+                        tr
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') /saying &emsp;
+                            td 
+                                h3.ui.image.header &emsp; 100 items &emsp;
+                        tr
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') /FAQ &emsp;
+                            td 
+                                h3.ui.image.header &emsp; 100 items &emsp;
+                        tr
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') /users &emsp;
+                            td 
+                                h3.ui.image.header &emsp; 1000 items &emsp;
+                      
+                            
+            div.restful-router.restful-info
+                h1 Routes
+                p
+                    | All HTTP verbs are supported. 
+                    br
+                    | View usage examples.
+                table.ui.very.basic.collapsing.celled.table
+                    thead
+                        tr
+                            td 
+                                h3.ui.image.header GET &emsp;
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') &emsp; /saying
+                        tr
+                            td 
+                                h3.ui.image.header GET &emsp;
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') &emsp; /saying/1
+                        tr
+                            td 
+                                h3.ui.image.header GET &emsp;
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') &emsp; /saying/1/comments
+                        tr
+                            td 
+                                h3.ui.image.header GET &emsp;
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') &emsp; /saying?userid=1
+                                   
+                        tr
+                            td 
+                                h3.ui.image.header POST &emsp;
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') &emsp; /saying/1
+                                   
+                        tr
+                            td 
+                                h3.ui.image.header PUT &emsp;
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') &emsp; /saying/1
+                                   
+                        tr
+                            td 
+                                h3.ui.image.header DELETE &emsp;
+                            td 
+                                h3.ui.image.header 
+                                    a(href='#') &emsp; /saying/1
+                                   
+        div.my-info
+             hr.hr-li1  
+             h3 webgot.js@gmail.com                  
