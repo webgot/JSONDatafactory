@@ -7,7 +7,29 @@
 var app = require('../app');
 var debug = require('debug')('introduce:server');
 var http = require('http');
+var mongodb = require('mongodb');
+var mongoose = require('mongoose');
+let database;
 
+function connecDB(){
+
+  let dbUrl = 'mongodb://localhost:27017/test';
+  mongoose.connect(dbUrl);
+  database = mongoose.connection;
+
+  database.on('error', (err)=>{
+    if(err)
+      throw err;
+
+    console.log('connection error');
+  });
+  database.on('open', ()=>{
+    console.log('connection OK!!\n' + dbUrl);
+
+  });
+  database.on('disconnected', connecDB);
+
+}
 /**
  * Get port from environment and store in Express.
  */
@@ -25,7 +47,9 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, ()=>{
+  connecDB();
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
