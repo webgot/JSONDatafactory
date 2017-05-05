@@ -1,4 +1,4 @@
-var Schema = {};
+let Schema = {};
 
 Schema.createSchema = function(mongoose){
 
@@ -7,7 +7,7 @@ Schema.createSchema = function(mongoose){
         passwd : {type : String, required : true},
         name : {type : String, required : true},
         age : {type : Number, required : true},
-        gender : {type : boolean, required : true},
+        gender : {type : Boolean, required : true},
         introduction : {type : String, required : true}
 
     });

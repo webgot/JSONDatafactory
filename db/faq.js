@@ -1,4 +1,4 @@
-var Schema = {};
+let Schema = {};
 
 Schema.createSchema = function(mongoose){
 
