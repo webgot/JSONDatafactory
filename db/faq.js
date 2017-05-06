@@ -2,7 +2,7 @@ let Schema = {};
 
 Schema.createSchema = function(mongoose){
 
-    FaqSchma = mongoose.Schema({
+    FaqSchema = mongoose.Schema({
         id:{type : String, required : true, 'default' : 'testFaq'},
         question : {type : String, required : true, 'default' : 'what your name?'},
         context : {type : String, required : true, 'default': 'my name is SEONG'}
@@ -10,7 +10,8 @@ Schema.createSchema = function(mongoose){
 
     console.log('FaqSchema 정의함');
     
-    return FaqSchma;
+    
+    return FaqSchema;
 }
 
 module.exports = Schema;

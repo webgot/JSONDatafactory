@@ -1,0 +1,27 @@
+extends ./layout/layout
+
+block content
+    form(method='POST', action='/saying')
+        table
+            thead
+                tr
+                    th Key
+                    th value
+                tr
+                    td userId
+                    td
+                        div.ui.input.focus
+                            input(type='text' name='userId' placeholder=":String")
+                tr
+                    td id : Number
+                    td
+                        div.ui.input.focus
+                            input(type='text' name='id' placeholder=":Number")
+                tr
+                    td content : String
+                    td
+                        div.field
+                            textarea(name='content' placeholder=":String" width="300px" height="200px")
+
+        input(type='submit', value='save')
+                    
