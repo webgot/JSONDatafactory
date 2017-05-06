@@ -16,6 +16,8 @@ const config = require('../config');
  */
 
 var port = normalizePort(process.env.PORT || config.server_port);
+//var port = normalizePort( process.env.OPENSHIFT_NODEJS_PORT||process.env.PORT || config.server_port_for_openshift);
+
 app.set('port', port);
 /**
  * Create HTTP server.
