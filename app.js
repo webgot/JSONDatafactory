@@ -12,14 +12,12 @@ const saying = require('./routes/saying');
 const faq = require('./routes/faq');
 const mongodb = require('mongodb');
 const mongoose = require('mongoose');
-const database = require('./db/database');
 
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-database.init(app, config);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

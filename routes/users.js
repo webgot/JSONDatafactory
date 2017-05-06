@@ -1,20 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-let database;
-let UserSchema;
-let USerModel
-router.init  = function(db, schema, model){
-
-    console.log('users init 호출됨');
-    database = db;
-    UserSchema = schema;
-    UserModel = model;
-
-}
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+  console.log(req.app.get('database'));
+  let = req.app.get('database');
+  
   res.send('preparing users service');
 });
 

@@ -1,6 +1,8 @@
 const mongodb = require('mongodb');
 const mongoose = require('mongoose');
-
+const users = require('./users');
+const saying = require('./saying');
+const faq = require('./faq');
 let database = {};
 
 database.init = function(app, config){
