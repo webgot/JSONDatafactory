@@ -5,28 +5,48 @@ const router = express.Router();
 
 router.get('/', (req, res)=>{
 
-    res.send('saying ok!');
-    res.end();
+    let queryUserId = req.query.userId;
+    let SayingModel = req.app.get('database').SayingModel;
+    
+    //console.log(queryUserId);
+    //userId 쿼리가 있는경우
+    if(queryUserId){
+        SayingModel.findByUserId(queryUserId, (err, data)=>{
+        if(err)
+            throw err;
+            res.json(data);    
+        });
+    }
+    // 쿼리가 없는 경우
+    else{
+        SayingModel.findAll((err, data)=>{
+          if(err)
+            throw err;
+
+             res.json(data);
+        });
+    }
 });
 
 router.get('/:id', (req, res)=>{
 
     let id = req.params.id;
-    let db = req.app.get('database');
-    let SayingModel = db.SayingModel; 
-    
-    SayingModel.findAll((err, result)=>{
-        console.log(result);
+    let SayingModel = req.app.get('database').SayingModel;
+ 
+    console.log(id);
+
+    SayingModel.findById(id, (err, data)=>{
+        if(err)
+            throw err;
+
+            res.json(data);
     })
 
-    res.send(id);
 });
 router.post('/', (req, res)=>{
     
     //post막아놓음
-    res.redirect('/');
-    return ;
-
+/*
     console.log('출력 되면 안돼');
 
     const rl = readline.createInterface({
@@ -72,9 +92,10 @@ router.post('/', (req, res)=>{
                 if( id%5 == 0) ++u_id;                
            }
         }
-    })
-   
-    
+    });
+    */
+
+    res.redirect('/');
 })
 
 module.exports = router;
