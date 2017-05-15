@@ -13,13 +13,13 @@ Schema.createSchema = function(mongoose){
     console.log('SayingSchema 정의함.');
 
     SayingSchema.static('findAll', function(callback){
-        return this.find({ }, callback);
+        return this.find({ }, { '_id':0, '__v':0}, callback);
     });
     SayingSchema.static('findByUserId', function(u_id, callback){
-        return this.find({'userId' : u_id}, callback);
+        return this.find({'userId' : u_id},{ '_id':0, '__v':0}, callback);
     });
     SayingSchema.static('findById', function(id, callback){
-        return this.find({'id' : id}, callback);
+        return this.find({'id' : id},{ '_id':0, '__v':0}, callback);
     });
 
     return SayingSchema;
