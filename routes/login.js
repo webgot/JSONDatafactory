@@ -10,24 +10,21 @@ router.get('/', (req, res)=>{
 });
 router.post('/doLogin', (req, res)=>{
 
-    let id = req.body.id;
+    var id = req.body.id;
     let pw = req.body.password;
-    let regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
-    if(id.match(regExp)){
-        if(id === config.manager_id && pw === config.manager_pw){
-            console.log('login success');
-            req.session.user = {
-                id :id,
-                name : 'manager',
-                authorized : true
-            }
-            res.redirect('/');
+    var regExp = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/i;
+     
+    if(regExp.test(id) === false)
+        res.redirect('/login/fail');
+    
+    else if(id === config.manager_id && pw === config.manager_pw){
+        console.log('login success');
+        req.session.user = {
+            id :id,
+            name : 'manager',
+            authorized : true
         }
-        else{
-            console.log(id +' : '+ pw);
-            res.redirect('/login/fail');
-        }
+        res.redirect('/');
     }
 });
 
