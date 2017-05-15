@@ -125,3 +125,47 @@ body{
 .typed-cursor{
     opacity: 0;
 }
+
+/* login.jade*/
+.login-wrapper{
+
+  position: relative;
+  background-color: #E6ECEE;
+  width: 100%;
+  height: 100vh;
+}
+  .login-container{
+    -webkit-box-shadow: 1px 1px 7px 0px rgba(214,214,214,1);
+    -moz-box-shadow: 1px 1px 7px 0px rgba(214,214,214,1);
+    box-shadow: 1px 1px 7px 0px rgba(214,214,214,1);
+    position: absolute;
+    top: 50%;
+    margin-top: -300px;
+    left : 50%;
+    margin-left : -220px;
+    border: 1px solid #bcd;
+    width: 440px;
+    height: 600px;
+    background-color: white;
+    
+  }
+    .login-logo{
+      margin-top : 70px;
+      margin-left : 90px;
+    }
+    .login-body {      
+      margin-top : 80px;    
+    }
+    .login-body h4{
+      margin-left: 90px;
+      margin-top : 10px;
+    }
+    .login-input{
+      text-align: center;
+    }
+    .login-button{
+      text-align: center;
+      margin-top : 30px; 
+    }
+   
+  

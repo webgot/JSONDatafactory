@@ -4,11 +4,13 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const expressSession = require('express-session');
 
 const config = require('./config');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const saying = require('./routes/saying');
+const login = require('./routes/login');
 const faq = require('./routes/faq');
 const mongodb = require('mongodb');
 const mongoose = require('mongoose');
@@ -27,14 +29,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, '/public/images/favicon.ico')));
+app.use(expressSession({
+  secret : config.session_key,
+  resave : true,
+  saveUninitialized : true
+}));
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/saying', saying);
 app.use('/faq', faq);
+app.use('/login', login);
 
 app.get('/addSaying', (req, res)=>{
-  res.render('addSaying');
+  if(req.session.user){
+    res.render('addSaying');
+  }
+  else
+    res.redirect('login');
 });
 
 // catch 404 and forward to error handler

@@ -18,7 +18,8 @@ router.get('/', function(req, res, next) {
         throw err;
       res.render('index',{
         title : 'JSONDatafactory',
-        sayingcount : data3[0].length
+        sayingcount : data3[0].length,
+        user : req.session.user
       });  
   });
 });

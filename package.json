@@ -12,6 +12,7 @@
     "crypto": "0.0.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-session": "^1.15.2",
     "forever": "^0.15.3",
     "jade": "~1.11.0",
     "mongodb": "^2.2.26",

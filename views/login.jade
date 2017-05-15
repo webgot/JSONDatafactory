@@ -1,0 +1,23 @@
+extends ./layout/layout
+
+block content
+    div.login-wrapper
+        div.login-container
+            div.login-logo
+                img(src='images/logo.png' width='100px')
+                div 
+                    h2 Only For Manager..
+            form(action="/login/doLogin"  method="post")
+                div.login-body
+                    h4 Login
+                    div.login-input
+                        div.ui.input.huge
+                            input( type='text' placeholder="id" name="id")
+                    h4 Passwd
+                    div.login-input
+                        div.ui.input.huge
+                            input(type='password' placeholder="passwd" name="password")
+                div.login-button
+                    button.ui.yellow.button.big LOGIN
+
+
