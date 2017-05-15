@@ -155,7 +155,7 @@ body{
       text-align: center;
     }
     .login-body h4{
-      margin-left: 100px;
+      margin-left: 50px;
       margin-top : 10px;
     }
     .login-input{
@@ -170,5 +170,8 @@ body{
       text-align: center;
       color: red; 
       height: 20px; 
+    }
+    .ui.input{
+      width: 360px;
     }
   /*end login.jade*/
