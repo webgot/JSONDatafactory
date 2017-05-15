@@ -24,7 +24,7 @@ router.post('/doLogin', (req, res)=>{
     }
     else{
         console.log('fail to login');
-        res.redirect('/login');
+        res.redirect('/login/fail');
     }
 });
 
@@ -47,4 +47,9 @@ router.get('/doLogout', (req, res)=>{
     
 });
 
+router.get('/fail', (req, res)=>{
+    res.render('login', {
+        failMsg : 'Check Your ID And Password..'
+    })
+})
 module.exports = router;

@@ -12,7 +12,7 @@ div.container
                 h1 Intro
                 p
                     |This site is a free online REST service that you can use whenever you need some fake data.
-                p 
+                    br 
                     |It's great for tutorials, faking a server, sharing code examples, ...
             div.restful-examples.restful-info
                 h1 Examples
@@ -58,6 +58,8 @@ div.container
                 h1 Routes
                 p
                     | Verb made according to REST rules.
+                    br
+                    | POST is accessible only to authorized user.
                 table.ui.very.basic.collapsing.celled.table
                     thead
                         tr
@@ -83,7 +85,8 @@ div.container
                             td 
                                 h3.ui.image.header POST &emsp;
                             td 
-                                h3.ui.image.header &emsp; /saying
+                                h3.ui.image.header 
+                                    a(href='/addSaying')&emsp; /saying
                                    
                         tr
                             td 
