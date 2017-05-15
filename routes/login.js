@@ -49,7 +49,7 @@ router.get('/doLogout', (req, res)=>{
 
 router.get('/fail', (req, res)=>{
     res.render('login', {
-        failMsg : 'Check Your ID And Password..'
+        failMsg : 'You are not an administrator.'
     })
 })
 module.exports = router;

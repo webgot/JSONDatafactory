@@ -4,9 +4,14 @@ block content
     div.login-wrapper
         div.login-container
             div.login-logo
-                img(src='/images/logo.png' width='130px')
+                a(href='/')
+                    img(src='/images/logo.png' width='150px')
                 div 
-                    h2 Only For Manager..
+                    h3 
+                        |This page is only available to managers
+                        br
+                        |If you are not a manager, please 
+                        a(href='/') go back.
             div.login-fail #{failMsg}
             form(action="/login/doLogin"  method="post")
                 div.login-body
