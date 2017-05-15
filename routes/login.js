@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const config = require('../config.js')
+const async = require('async');
 
 router.get('/', (req, res)=>{
     if(req.session.user)
@@ -10,25 +11,37 @@ router.get('/', (req, res)=>{
 });
 router.post('/doLogin', (req, res)=>{
 
-    var id = req.body.id;
+    let format = false;
+    let id = req.body.id;
     let pw = req.body.password;
-    var regExp = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/i;
-     
-    if(regExp.test(id) === false)
-        res.redirect('/login/fail');
-    
-    else if(id === config.manager_id && pw === config.manager_pw){
-        console.log('login success');
-        req.session.user = {
-            id :id,
-            name : 'manager',
-            authorized : true
+    let regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+   
+    //check email format
+    if(regex.test(id) === true){
+        if(id == config.manager_id && pw == config.manager_pw){
+            console.log('login success');
+            req.session.user = {
+                id :id,
+                name : 'manager',
+                authorized : true
+            }
+            res.redirect('/');
         }
-        res.redirect('/');
-    }
+        else{
+            console.log('login fail');
+            res.redirect('/login/fail');
+        }
+    }   
+    else{
+        console.log('asda');
+        res.redirect('/login/fail');
+    } 
+   
 });
 
 router.get('/doLogout', (req, res)=>{
+    
+    //if has user login session
     if(req.session.user){
         console.log(req.session.user.name+' logout!');
 
