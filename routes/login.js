@@ -12,21 +12,22 @@ router.post('/doLogin', (req, res)=>{
 
     let id = req.body.id;
     let pw = req.body.password;
-    console.log(config.manager_id+' : '+id);
-    console.log(config.manager_pw+' : '+pw);
-    
-    if(id === config.manager_id && pw === config.manager_pw){
-        console.log('login success');
-        req.session.user = {
-            id :id,
-            name : 'manager',
-            authorized : true
+    let regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+    if(id.match(regExp)){
+        if(id === config.manager_id && pw === config.manager_pw){
+            console.log('login success');
+            req.session.user = {
+                id :id,
+                name : 'manager',
+                authorized : true
+            }
+            res.redirect('/');
         }
-        res.redirect('/');
-    }
-    else{
-        console.log(id +' : '+ pw);
-        res.redirect('/login/fail');
+        else{
+            console.log(id +' : '+ pw);
+            res.redirect('/login/fail');
+        }
     }
 });
 
