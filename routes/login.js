@@ -12,8 +12,10 @@ router.post('/doLogin', (req, res)=>{
 
     let id = req.body.id;
     let pw = req.body.password;
+    console.log(config.manager_id+' : '+id);
+    console.log(config.manager_pw+' : '+pw);
     
-    if(id == config.manager_id && pw == config.manager_pw){
+    if(id === config.manager_id && pw === config.manager_pw){
         console.log('login success');
         req.session.user = {
             id :id,
@@ -23,7 +25,7 @@ router.post('/doLogin', (req, res)=>{
         res.redirect('/');
     }
     else{
-        console.log('fail to login');
+        console.log(id +' : '+ pw);
         res.redirect('/login/fail');
     }
 });
