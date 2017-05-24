@@ -1,6 +1,3 @@
 node_modules
 *.log
 *.txt
-www
-config.js
-database.js
