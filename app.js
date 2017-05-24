@@ -14,7 +14,7 @@ const login = require('./routes/login');
 const faq = require('./routes/faq');
 const mongodb = require('mongodb');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const cors = require('cors')();
 const app = express();
 
 // view engine setup
